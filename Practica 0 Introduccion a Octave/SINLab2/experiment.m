@@ -10,5 +10,5 @@ M=N-round(.7*N); te=data(N-M+1:N,:);
 rl=zeros(M,1);
 for m=1:M 
   tem=[1 te(m,1:D)]';
-  rl(m)=ll(linmach(w,tem)); end
+  rl(m)=ll(linmachOpt(w,tem)); end
 [nerr m]=confus(te(:,L),rl)
