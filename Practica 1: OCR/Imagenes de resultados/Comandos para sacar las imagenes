@@ -1,0 +1,10 @@
+Cargamos los datos (en X)
+load('trdata.mat.gz')
+Ejecutamos la funcion
+[m,W]=pca(X);
+
+Mostramos la imagen
+
+w=W(:,4); (el 4 es el numero de vector columna ha mostrar en este caso muestra el n4)
+wr=reshape(w,16,16);
+imshow(wr',[])
