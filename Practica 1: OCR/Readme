@@ -1,0 +1,6 @@
+ejecutar pdaexp.m y ldaexp en CONSOLA (NO OCTAVE)
+
+-./ldaexp.m trdata.mat.gz trlabels.mat.gz tedata.mat.gz telabels.mat.gz 1 1 9 20
+
+./pcaexp.m trdata.mat.gz trlabels.mat.gz tedata.mat.gz telabels.mat.gz 1 1 9 20
+
