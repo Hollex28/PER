@@ -1,11 +1,11 @@
-function [W]=lda(X,xl)
+function [W]=lda(X,xl,k)
     n = columns(X);
 	Dim = rows(X);
     media = sum(X')'/n;#media global de los datos
 	#inicializacion sb sw
 	sb = zeros(Dim);
 	sw = sb;
-	k=256;
+	
 
 	#Para cada clase c:
     for c=unique(xl)
