@@ -23,7 +23,7 @@ load(trlabels);
 load(tedata);
 load(telabels);
 
-[W] = lda(X,xl);
+[W] = lda(X,xl,maxk);
 kn = knn(X,xl,Y,yl,1);
 Kvect = [];
 ErrVect = [];
