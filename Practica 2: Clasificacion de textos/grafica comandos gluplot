@@ -1,0 +1,7 @@
+set logscale xy
+plot "res.txt" u 1:2 not w lp ,
+"" u 1:2:(2*$3) not w e.
+
+El fichero txt tiene que contener 3 columnas con los siguientes datos
+
+epsion	err 
