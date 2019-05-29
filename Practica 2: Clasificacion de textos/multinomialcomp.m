@@ -17,30 +17,25 @@ disp("Loading data...");
 load(datafile);
 disp("Data load complete.");
 
-# 90% de entrenamiento y 10 para test (division)
-[nrows, ncols] = size(data);
-rand("seed", 23);
-perm = randperm(nrows);
-pdata = data(perm,:);
-trper = 0.9;
-ntr=floor(nrows*trper);
-nte=nrows-ntr;
+#
+ntr=size(tr)(1);
+nte=size(te)(1);
 ##tr y te son datos surperfluos ya que no se utilizan
 #tr=pdata(1:ntr,:);
 #te=pdata(ntr+1:nrows,:);
 disp("parte 1");
 
 #sacar los labels de los datos
-trlabels = pdata(1:ntr,ncols);
+trlabels = tr(:,end);
 #las etiquetas son la ultima columna de la matriz pdata y las muestras del entrenamiento son el 90% inicial de pdata
-trdata = pdata(1:ntr,1:ncols-1);
+trdata = tr(:,1:end-1);
 disp("parte 2");
 #los datos son todas las columnas menos la ultima columna de la matriz pdata y las muestras del entrenamiento son el 90% inicial de pdata
 #------------------------------------------------
 
-telabels = pdata(ntr+1:nrows,ncols);
+telabels = te(:,end);
 #las etiquetas son la ultima columna de la matriz pdata y las muestras del entrenamiento son el 10% final de pdata
-tedata = pdata(ntr+1:nrows,1:ncols-1);
+tedata = te(:,1:end-1);
 #los datos son todas las columnas menos la ultima columna de la matriz pdata y las muestras del entrenamiento son el 10% final de pdata
 #------------------------------------------------
 disp("parte 3");
@@ -84,18 +79,14 @@ vps = sum(trdata(sfilas,:)) / sum(sum(trdata(sfilas,:)));
 disp("parte 6");
 
 #para el segundo vector de probabilidades de spam es el mismo proceso que para el vector de probabilidades de la clase no spam.
-
 #--------------------------------------------------
-
 # Suavizado Laplace
 if (e != 0)
 	#e = 0.0001;
     vph = (vph + e) / sum(vph + e);
     vps = (vps + e) / sum(vps + e);
 end
-
-#--------------------------------------------------
-
+#---------------------------------
 #Clasificador Multinomial
 w_h = log(vph);
 w_h0 = log(ph);
@@ -114,7 +105,8 @@ disp("parte 9");
 #-------------------------------------------------
 #Ahora sacamos en Nº de muestras mal clasificadas
 aux = clasificacion != telabels;
-Nmuestas = size(telabels)(1,1)
+Nmuestas = nte
 Error = size(find(aux==1))(1,1)
+disp("parte 9");
 PorcentageDeError = Error/nte
 #------------------------------------------------
